@@ -36,7 +36,7 @@ jobs:
     - name: Download kernel source
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone --recursive https://github.com/duckyduckG/android_kernel_xiaomi_sdm845_419.git android-kernel --depth=1 --quiet
+        git clone --recursive https://github.com/Ayush-0593/android_kernel_xiaomi_sdm845_419.git android-kernel --depth=1 --quiet
         cd android-kernel
         sed -i 's/ -dirty//g' scripts/setlocalversion
     
@@ -66,7 +66,7 @@ jobs:
         # Check and clone device trees
         if ! [ -d "arch/arm64/boot/dts/qcom" ]; then
           mkdir -p arch/arm64/boot/dts/qcom
-          if git clone https://github.com/duckyduckG/devicetree_qcom-sdm845_419.git temp_qcom --quiet 2>/dev/null; then
+          if git clone https://github.com/Ayush-0593/devicetree_qcom-sdm845_419.git temp_qcom --quiet 2>/dev/null; then
             cp -r temp_qcom/* arch/arm64/boot/dts/qcom/
             rm -rf temp_qcom
             echo "QC device trees downloaded"
@@ -75,7 +75,7 @@ jobs:
         
         if ! [ -d "arch/arm64/boot/dts/xiaomi" ]; then
           mkdir -p arch/arm64/boot/dts/xiaomi
-          if git clone https://github.com/duckyduckG/devicetree_xiaomi_419.git temp_xiaomi --quiet 2>/dev/null; then
+          if git clone https://github.com/Ayush-0593/devicetree_xiaomi_419.git temp_xiaomi --quiet 2>/dev/null; then
             cp -r temp_xiaomi/* arch/arm64/boot/dts/xiaomi/
             rm -rf temp_xiaomi
             echo "Xiaomi device trees downloaded"
@@ -85,7 +85,7 @@ jobs:
         # Check and clone techpack
         if ! [ -d "techpack/mi845" ]; then
           mkdir -p techpack/mi845
-          if git clone https://github.com/duckyduckG/kernel_techpack_mi845_419.git temp_techpack --quiet 2>/dev/null; then
+          if git clone https://github.com/Ayush-0593/kernel_techpack_mi845_419.git temp_techpack --quiet 2>/dev/null; then
             cp -r temp_techpack/* techpack/mi845/
             rm -rf temp_techpack
             echo "Techpack mi845 downloaded"
